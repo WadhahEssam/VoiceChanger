@@ -8,7 +8,10 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    @IBOutlet weak var infoLabel: UILabel! // weak is a memory helper in swift
+    
+    var isRecording = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -16,7 +19,18 @@ class ViewController: UIViewController {
 
 
     @IBAction func startRecording(_ sender: Any) {
-        print("record button was pressed")
+        if (!isRecording) {
+            isRecording = true
+            infoLabel.text = "Recording started"
+        }
+    }
+    
+    
+    @IBAction func stopRecording(_ sender: Any) {
+        if (isRecording) {
+            isRecording = false
+            infoLabel.text = "Recording Stopped"
+        }
     }
 }
 

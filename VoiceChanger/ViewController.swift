@@ -21,7 +21,7 @@ class ViewController: UIViewController {
     @IBAction func startRecording(_ sender: Any) {
         if (!isRecording) {
             isRecording = true
-            infoLabel.text = "Recording started"
+            infoLabel.text = "Started"
         }
     }
     
@@ -29,7 +29,7 @@ class ViewController: UIViewController {
     @IBAction func stopRecording(_ sender: Any) {
         if (isRecording) {
             isRecording = false
-            infoLabel.text = "Recording Stopped"
+            infoLabel.text = "Stopped"
         }
     }
 }

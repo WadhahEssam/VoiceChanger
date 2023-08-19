@@ -15,5 +15,8 @@ class ViewController: UIViewController {
     }
 
 
+    @IBAction func startRecording(_ sender: Any) {
+        print("record button was pressed")
+    }
 }
 

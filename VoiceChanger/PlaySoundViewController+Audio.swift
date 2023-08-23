@@ -85,7 +85,7 @@ extension PlaySoundViewController: AVAudioPlayerDelegate {
         
         // schedule to play and start the engine!
         audioPlayerNode.stop()
-        audioPlayerNode.scheduleFile(audioFile, at: nil) {
+        audioPlayerNode.scheduleFile(audioFile, at: nil) { // clousre
             
             var delayInSeconds: Double = 0
             

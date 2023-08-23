@@ -8,13 +8,15 @@
 import UIKit
 import AVFoundation
 
+enum RecordingState { case recording, idle }
+
 class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
     var audioRecorder: AVAudioRecorder!
     @IBOutlet weak var recordButton: UIButton!
     @IBOutlet weak var stopRecordButton: UIButton!
     @IBOutlet weak var infoLabel: UILabel! // weak is a memory helper in swiftK
     
-    var isRecording = false
+    var recordingState: RecordingState = .idle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,20 +25,23 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated) // you always call the super class before doing your own implementation
-        updateButtonsAvailability()
+        updateButtons(.idle)
     }
     
-    private func updateButtonsAvailability() {
-        stopRecordButton.isEnabled = isRecording
-        recordButton.isEnabled = !isRecording
+    private func updateButtons(_ newRecordingState: RecordingState) {
+        if (newRecordingState == .recording) {
+            infoLabel.text = "Started"
+            recordingState = .recording
+        } else if (newRecordingState == .idle) {
+            recordingState = .idle
+            infoLabel.text = "Tap To Record"
+        }
+        stopRecordButton.isEnabled = recordingState == .recording
+        recordButton.isEnabled = recordingState == .idle
     }
     
     @IBAction func startRecording(_ sender: Any) {
-        if (!isRecording) {
-            isRecording = true
-            infoLabel.text = "Started"
-        }
-        updateButtonsAvailability()
+        updateButtons(.recording)
         
         let dirPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as String
         let recordingName = "recordedVoice.wav"
@@ -55,12 +60,7 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
     
     
     @IBAction func stopRecording(_ sender: Any) {
-        if (isRecording) {
-            isRecording = false
-            infoLabel.text = "Stopped"
-        }
-        updateButtonsAvailability()
-        
+        updateButtons(.idle)
         audioRecorder.stop()
         let audioSession = AVAudioSession.sharedInstance()
         try! audioSession.setActive(false)

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 class PlaySoundViewController: UIViewController {
     @IBOutlet weak var snailButton: UIButton!
@@ -17,36 +18,45 @@ class PlaySoundViewController: UIViewController {
     @IBOutlet weak var stopButton: UIButton!
     
     var recordedAudioURL: URL!
+    var audioFile: AVAudioFile!
+    var audioEngine: AVAudioEngine!
+    var audioPlayerNode: AVAudioPlayerNode!
+    var stopTimer: Timer!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        if let recordedAudioURL = self.recordedAudioURL {
-            print(recordedAudioURL)
-        }
+        setupAudio()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        configureUI(.notPlaying)
     }
     
     @IBAction func playSound(_ sender: UIButton) {
         // in swift you actually can do equality check on instances
 
         switch sender {
-            case snailButton:
-                print("snail button")
-            case rabbitButton:
-                print("rabbit button")
-            case chipmunkButton:
-                print("chipmunk button")
-            case vaderButton:
-                print("vader button")
-            case echoButton:
-                print("echo button")
-            case reverbButton:
-                print("reverb button")
-            default:
-                print("couldn't find the button")
+        case snailButton:
+            playSound(rate: 0.5)
+        case rabbitButton:
+            playSound(rate: 1.5)
+        case chipmunkButton:
+            playSound(pitch: 1000)
+        case vaderButton:
+            playSound(pitch: -1000)
+        case echoButton:
+            playSound(echo: true)
+        case reverbButton:
+            playSound(reverb: true)
+        default:
+            print("couldn't find the button")
         }
+        
+        configureUI(.playing)
     }
     
     @IBAction func stopSound(_sender: UIButton) {
         print("stop button")
+        stopAudio()
     }
 }

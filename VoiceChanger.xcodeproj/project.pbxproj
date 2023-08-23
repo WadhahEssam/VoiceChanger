@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		EA1388DE2A93EADE00C79D14 /* PlaySoundViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA1388DD2A93EADE00C79D14 /* PlaySoundViewController.swift */; };
+		EA1388E22A96959B00C79D14 /* PlaySoundViewController+Audio.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA1388E12A96959B00C79D14 /* PlaySoundViewController+Audio.swift */; };
 		EA9B184A2A910A8200A396BC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA9B18492A910A8200A396BC /* AppDelegate.swift */; };
 		EA9B184C2A910A8200A396BC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA9B184B2A910A8200A396BC /* SceneDelegate.swift */; };
 		EA9B184E2A910A8200A396BC /* RecordSoundsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA9B184D2A910A8200A396BC /* RecordSoundsViewController.swift */; };
@@ -18,6 +19,7 @@
 
 /* Begin PBXFileReference section */
 		EA1388DD2A93EADE00C79D14 /* PlaySoundViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaySoundViewController.swift; sourceTree = "<group>"; };
+		EA1388E12A96959B00C79D14 /* PlaySoundViewController+Audio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PlaySoundViewController+Audio.swift"; sourceTree = "<group>"; };
 		EA9B18462A910A8200A396BC /* VoiceChanger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VoiceChanger.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA9B18492A910A8200A396BC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EA9B184B2A910A8200A396BC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -66,6 +68,7 @@
 				EA9B18542A910A8400A396BC /* LaunchScreen.storyboard */,
 				EA9B18572A910A8400A396BC /* Info.plist */,
 				EA1388DD2A93EADE00C79D14 /* PlaySoundViewController.swift */,
+				EA1388E12A96959B00C79D14 /* PlaySoundViewController+Audio.swift */,
 			);
 			path = VoiceChanger;
 			sourceTree = "<group>";
@@ -141,6 +144,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EA1388E22A96959B00C79D14 /* PlaySoundViewController+Audio.swift in Sources */,
 				EA9B184E2A910A8200A396BC /* RecordSoundsViewController.swift in Sources */,
 				EA9B184A2A910A8200A396BC /* AppDelegate.swift in Sources */,
 				EA1388DE2A93EADE00C79D14 /* PlaySoundViewController.swift in Sources */,

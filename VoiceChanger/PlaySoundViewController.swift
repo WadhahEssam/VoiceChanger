@@ -24,6 +24,14 @@ class PlaySoundViewController: UIViewController {
     var stopTimer: Timer!
 
     override func viewDidLoad() {
+        snailButton.imageView?.contentMode = UIView.ContentMode.scaleAspectFit;
+        chipmunkButton.imageView?.contentMode = UIView.ContentMode.scaleAspectFit;
+        rabbitButton.imageView?.contentMode = UIView.ContentMode.scaleAspectFit;
+        vaderButton.imageView?.contentMode = UIView.ContentMode.scaleAspectFit;
+        echoButton.imageView?.contentMode = UIView.ContentMode.scaleAspectFit;
+        reverbButton.imageView?.contentMode = UIView.ContentMode.scaleAspectFit;
+        stopButton.imageView?.contentMode = UIView.ContentMode.scaleAspectFit;
+        
         super.viewDidLoad()
         setupAudio()
     }
@@ -53,6 +61,10 @@ class PlaySoundViewController: UIViewController {
         }
         
         configureUI(.playing)
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        stopAudio()
     }
     
     @IBAction func stopSound(_sender: UIButton) {

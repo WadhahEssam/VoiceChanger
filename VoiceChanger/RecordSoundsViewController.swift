@@ -8,7 +8,7 @@
 import UIKit
 import AVFoundation
 
-enum RecordingState { case recording, idle }
+enum RecordingState { case recording, idle } // more scalable for feuture states like (paused, stoped, etc..)
 
 class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
     var audioRecorder: AVAudioRecorder!
